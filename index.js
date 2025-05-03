@@ -35,7 +35,7 @@ const employeeModel = sequelize.define("Employee", {
         await sequelize.authenticate();
         console.log(`successfully connected to database: ${ process.env.DB }`);
 
-        await employeeModel.sync();
+        await employeeModel.sync({ force: true });
         console.log("successfully created table");
 
         const user = await employeeModel.create({
